@@ -25,9 +25,19 @@ export default class ChromeBoisDomain extends Component {
   /* if the key pressed was 's', then it should call `resize` with '-' 
    */
   
+  captureKeyDown = (event) => {
+    if (event.key === 'a') {
+      resize('+')
+    } else if (event.key === 's') {
+      resize('-')
+    }
+  }
+
   render() {
     return (
-      <canvas onClick={this.toggleCycling} onKeyDown={this.resize}> 
+      <canvas 
+        onClick={() => {toggleCycling()}}
+        onKeyDown={this.captureKeyDown} 
         onMouseMove={this.handleMouseMove}
         width='900'
         height='600'
